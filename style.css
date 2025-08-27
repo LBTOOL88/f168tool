@@ -68,8 +68,9 @@ body {
 }
 
 /* Slightly reduce active scale to fit smaller viewports better */
+/* Reduce the scale of the active card slightly on all devices to prevent it from overflowing the container */
 .core-card.active{
-  transform: translateX(0) scale(1.06) !important;
+  transform: translateX(0) scale(1.04) !important;
 }
 
 /* Ensure description can wrap and is visible */
@@ -83,8 +84,8 @@ body {
     height: clamp(380px, 65vh, 520px) !important;
   }
   .core-card{
-    width: 260px !important;
-    height: 350px !important; /* keep readable proportions */
+    width: 220px !important;
+    height: 300px !important; /* reduce dimensions for mobile */
   }
 }
 /* ===== END FIX ===== */
@@ -98,8 +99,8 @@ body {
     overflow: visible !important;
   }
   .core-card{
-    width: 260px !important;
-    height: 350px !important;
+    width: 220px !important;
+    height: 300px !important;
   }
   .core-card.active{ transform: translateX(0) scale(1.06) !important; }
 }
@@ -107,7 +108,7 @@ body {
 /* Nhỏ (≤360px) */
 @media (max-width: 360px){
   #core-selector-container{ height: clamp(360px, 62dvh, 500px) !important; }
-  .core-card{ width: 240px !important; height: 330px !important; }
+  .core-card{ width: 200px !important; height: 280px !important; }
   .core-card.active{ transform: translateX(0) scale(1.04) !important; }
 }
 
@@ -181,9 +182,10 @@ body {
 
   /* Scale down the AI core selector cards slightly on mobile to ensure
      they fit comfortably on the screen without horizontal overflow. */
+  /* Reduce the size of AI core cards on small devices to ensure they fit neatly */
   .core-card {
-    width: 240px !important;
-    height: 330px !important;
+    width: 220px !important;
+    height: 300px !important;
   }
 }
 
@@ -194,8 +196,8 @@ body {
     max-width: 90% !important;
   }
   .core-card {
-    width: 220px !important;
-    height: 300px !important;
+    width: 200px !important;
+    height: 280px !important;
   }
 }
 
