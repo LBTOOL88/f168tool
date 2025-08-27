@@ -170,7 +170,34 @@ body {
     padding-top: 40px !important;
     padding-bottom: 60px !important;
   }
+  /* On small devices shrink the login panel further to avoid overwhelming the
+     viewport. The width is capped as a percentage of the available
+     space rather than a fixed pixel width so it scales appropriately
+     across various phone sizes. */
+  #auth-content {
+    max-width: 85% !important;
+  }
+
+  /* Scale down the AI core selector cards slightly on mobile to ensure
+     they fit comfortably on the screen without horizontal overflow. */
+  .core-card {
+    width: 240px !important;
+    height: 330px !important;
+  }
 }
+
+/* Extra small phones (≤360px) receive a slightly smaller card and login
+   panel. */
+@media (max-width: 360px) {
+  #auth-content {
+    max-width: 90% !important;
+  }
+  .core-card {
+    width: 220px !important;
+    height: 300px !important;
+  }
+}
+
 
 /* Disable the animated neon gradient background on small screens. This
    animation is visually impressive but requires continuous repainting and
