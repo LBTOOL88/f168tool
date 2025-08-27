@@ -20,13 +20,14 @@
 <!-- BỔ SUNG: Liên kết đến tệp CSS tùy chỉnh và manifest PWA -->
 <link href="style.css" rel="stylesheet">
 <link href="manifest.json" rel="manifest">
-<meta content="#00ffb2" name="theme-color"/>
+<!-- Updated theme color to match quantum green primary -->
+<meta content="#00ff00" name="theme-color"/>
 <style>
         /* --- CORE STYLES --- */
         :root {
             /* Updated quantum theme: primary green and red colors */
-            --cyan: #00ffb2; /* neon green */
-            --yellow: #ff3b3b; /* vivid red */
+            --cyan: #00ff00; /* neon green */
+            --yellow: #ff0000; /* vivid red */
             --dark-blue: #0A192F;
             --container-bg: rgba(10, 25, 47, 0.85);
             --border-color: var(--cyan);
@@ -37,9 +38,9 @@
 
             /* Bổ sung màu neon và hiệu ứng hiện đại */
             /* Apply quantum gradient using green and red hues */
-            --neon-blue: #00ffb2; /* neon green */
-            --neon-purple: #ff3b3b; /* vivid red */
-            --neon-pink: #00cc66; /* secondary green for gradient */
+            --neon-blue: #00ff00; /* neon green */
+            --neon-purple: #ff0000; /* vivid red */
+            --neon-pink: #00ff00; /* secondary green for gradient */
             --dark-bg: #070918;
             --panel-blur: blur(12px);
 
@@ -66,7 +67,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(130deg, var(--neon-blue), var(--neon-purple), var(--neon-pink));
+            /* Explicit quantum gradient using green and red */
+            background: linear-gradient(130deg, #00ff00, #ff0000, #00ff00);
             background-size: 200% 200%;
             animation: move-gradient 25s ease alternate infinite;
             filter: blur(60px);
@@ -90,12 +92,14 @@
         #authScreen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; z-index: 10; padding: 15px; box-sizing: border-box; transition: opacity 0.5s ease; }
         #authScreen.fade-out { opacity: 0; pointer-events: none; }
         #auth-content {
-            background: var(--container-bg); border: 2px solid var(--border-color);
+            background: var(--container-bg);
+            /* Set border and glow explicitly to neon green */
+            border: 2px solid #00ff00;
             backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.2), 0 0 25px var(--border-color);
+            box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.2), 0 0 25px #00ff00;
             width: 100%; max-width: 400px; padding: 30px 25px; text-align: center; position: relative;
         }
-        .corner-bracket { position: absolute; width: 25px; height: 25px; border-style: solid; border-color: var(--cyan); opacity: 0; animation: boot-up 0.6s ease-out forwards, corner-glow 2s infinite alternate; }
+        .corner-bracket { position: absolute; width: 25px; height: 25px; border-style: solid; border-color: #00ff00; opacity: 0; animation: boot-up 0.6s ease-out forwards, corner-glow 2s infinite alternate; }
         .corner-bracket.top-left { top: -2px; left: -2px; border-width: 4px 0 0 4px; animation-delay: 0.2s; }
         .corner-bracket.top-right { top: -2px; right: -2px; border-width: 4px 4px 0 0; animation-delay: 0.3s; }
         .corner-bracket.bottom-left { bottom: -2px; left: -2px; border-width: 0 0 4px 4px; animation-delay: 0.4s; }
@@ -103,7 +107,7 @@
         .boot-anim { opacity: 0; transform: translateY(20px); animation: boot-up 0.6s ease-out forwards; }
         #auth-logo { display: block; margin-left: auto; margin-right: auto; width: 120px; height: 120px; border-radius: 50%; margin-bottom: 20px; border: 2px solid var(--yellow); box-shadow: 0 0 20px var(--yellow); }
         h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
-        #authScreen h2 { font-size: 1.8em; color: var(--yellow); text-shadow: 0 0 10px var(--yellow), 0 0 20px var(--cyan); margin: 0 0 25px 0; letter-spacing: 2px; min-height: 1.2em; }
+        #authScreen h2 { font-size: 1.8em; color: var(--yellow); text-shadow: 0 0 10px var(--yellow), 0 0 20px #00ff00; margin: 0 0 25px 0; letter-spacing: 2px; min-height: 1.2em; }
         #authScreen form { width: 100%; }
         input[type="text"], input[type="password"], input[type="tel"], input[type="number"] { font-family: 'Rajdhani', sans-serif; font-weight: 700; margin: 10px 0; width: 100%; padding: 14px; background: rgba(0,0,0,0.5); color: var(--yellow); font-size: 1.1em; border: 1px solid var(--border-color); transition: all .2s ease; box-sizing: border-box; }
         input::placeholder { color: rgba(255, 255, 255, 0.4); font-weight: 400; }
@@ -235,13 +239,15 @@
         .title-vip {
             font-size: 2em !important;
             font-weight: 700;
-            background: linear-gradient(90deg, var(--gold), var(--cyan), #ff00c1, var(--gold));
+            /* Use quantum gradient of green and red */
+            background: linear-gradient(90deg, var(--cyan), var(--yellow), var(--cyan));
             background-size: 400%;
             -webkit-background-clip: text;
             background-clip: text;
             -webkit-text-fill-color: transparent;
             animation: aurora-flow-vip 5s linear infinite;
-            text-shadow: 0 0 5px rgba(255, 215, 0, 0.8), 0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(255, 0, 193, 0.5);
+            /* Adjust glow to reflect green and red hues */
+            text-shadow: 0 0 5px var(--cyan), 0 0 15px var(--yellow), 0 0 30px var(--cyan);
         }
 
         #core-selector-container {
@@ -1055,14 +1061,15 @@
 <style>
         /* --- CORE STYLES --- */
         :root {
-            --cyan: #00ffff;
-            --yellow: #fcee0a;
-            --dark-blue: #0A192F; 
+            /* Override theme colours for quantum style: neon green and vivid red */
+            --cyan: #00ff00;    /* primary neon green */
+            --yellow: #ff0000;  /* primary vivid red */
+            --dark-blue: #0A192F;
             --container-bg: rgba(10, 25, 47, 0.85);
             --border-color: var(--cyan);
             --text-light: #f0f0f0;
-            --error-red: #ff3c3c;
-            --gold: #FFD700;
+            --error-red: #ff0000; /* unify error to vivid red */
+            --gold: #ff0000;      /* repurpose gold variable to our red accent */
             --success-green: #00ff7f;
             --bg-dark: #0A0A0A;
         }
@@ -1081,12 +1088,14 @@
         #authScreen { position: fixed; top: 0; left: 0; width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; z-index: 10; padding: 15px; box-sizing: border-box; transition: opacity 0.5s ease; }
         #authScreen.fade-out { opacity: 0; pointer-events: none; }
         #auth-content {
-            background: var(--container-bg); border: 2px solid var(--border-color);
+            background: var(--container-bg);
+            /* Set border and glow explicitly to neon green */
+            border: 2px solid #00ff00;
             backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
-            box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.2), 0 0 25px var(--border-color);
+            box-shadow: inset 0 0 10px rgba(0, 255, 0, 0.2), 0 0 25px #00ff00;
             width: 100%; max-width: 400px; padding: 30px 25px; text-align: center; position: relative;
         }
-        .corner-bracket { position: absolute; width: 25px; height: 25px; border-style: solid; border-color: var(--cyan); opacity: 0; animation: boot-up 0.6s ease-out forwards, corner-glow 2s infinite alternate; }
+        .corner-bracket { position: absolute; width: 25px; height: 25px; border-style: solid; border-color: #00ff00; opacity: 0; animation: boot-up 0.6s ease-out forwards, corner-glow 2s infinite alternate; }
         .corner-bracket.top-left { top: -2px; left: -2px; border-width: 4px 0 0 4px; animation-delay: 0.2s; }
         .corner-bracket.top-right { top: -2px; right: -2px; border-width: 4px 4px 0 0; animation-delay: 0.3s; }
         .corner-bracket.bottom-left { bottom: -2px; left: -2px; border-width: 0 0 4px 4px; animation-delay: 0.4s; }
@@ -1094,7 +1103,7 @@
         .boot-anim { opacity: 0; transform: translateY(20px); animation: boot-up 0.6s ease-out forwards; }
         #auth-logo { display: block; margin-left: auto; margin-right: auto; width: 120px; height: 120px; border-radius: 50%; margin-bottom: 20px; border: 2px solid var(--yellow); box-shadow: 0 0 20px var(--yellow); }
         h1, h2, h3 { font-family: 'Orbitron', sans-serif; text-transform: uppercase; }
-        #authScreen h2 { font-size: 1.8em; color: var(--yellow); text-shadow: 0 0 10px var(--yellow), 0 0 20px var(--cyan); margin: 0 0 25px 0; letter-spacing: 2px; min-height: 1.2em; }
+        #authScreen h2 { font-size: 1.8em; color: var(--yellow); text-shadow: 0 0 10px var(--yellow), 0 0 20px #00ff00; margin: 0 0 25px 0; letter-spacing: 2px; min-height: 1.2em; }
         input[type="text"], input[type="password"], input[type="tel"], input[type="number"] { font-family: 'Rajdhani', sans-serif; font-weight: 700; margin: 10px 0; width: 100%; padding: 14px; background: rgba(0,0,0,0.5); color: var(--yellow); font-size: 1.1em; border: 1px solid var(--border-color); transition: all .2s ease; box-sizing: border-box; }
         input::placeholder { color: rgba(255, 255, 255, 0.4); font-weight: 400; }
         input:focus { outline: none; border-color: var(--yellow); box-shadow: 0 0 15px var(--yellow); }
@@ -2862,8 +2871,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (clickedIndex === currentCoreIndex) {
                         playSound('confirm');
                         const selectedCore = CONFIG.ai_cores[currentCoreIndex];
-                        // Show a friendly activation status message before loading
-                        showActivationMessage(selectedCore.id);
+                        // Start the loading animation which will also set the activation message
                         showCoreLoadingAnimation(selectedCore.id);
                     } else {
                         currentCoreIndex = clickedIndex;
@@ -2950,10 +2958,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const modal = DOMElements.coreLoadingModal;
             const bar = DOMElements.loadingProgressBar;
             const text = DOMElements.loadingPercentage;
-            
+            // Set dynamic activation message based on core
+            const activationMessages = {
+                longbao_iv: 'ĐANG KÍCH HOẠT A.I LONG BẢO V',
+                soi_hu: 'ĐANG KÍCH HOẠT THỢ SĂN TIỀN THƯỞNG',
+                yian: 'ĐANG KÍCH HOẠT A.I YIAN',
+                aquarius: 'ĐANG KÍCH HOẠT SIÊU A.I AQUARIUS'
+            };
+            DOMElements.loadingStatusText.textContent = activationMessages[coreId] || 'ĐANG KÍCH HOẠT...';
+
             modal.classList.remove('hidden');
             let percentage = 0;
-            
+
             const interval = setInterval(() => {
                 percentage++;
                 bar.style.width = `${percentage}%`;

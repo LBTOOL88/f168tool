@@ -3,8 +3,8 @@
 :root {
   --container-bg: rgba(10, 25, 47, 0.7);
   /* Updated quantum theme: primary green and red colors */
-  --cyan: #00ffb2;
-  --yellow: #ff3b3b;
+  --cyan: #00ff00;
+  --yellow: #ff0000;
 }
 
 /* Điều chỉnh vùng đăng nhập trên thiết bị di động */
