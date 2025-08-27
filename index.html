@@ -677,19 +677,26 @@
         }
         
         .lobby-card {
-            background: rgba(10, 10, 20, 0.5); border: 2px solid transparent;
-            padding: 1rem; text-align: center; cursor: pointer;
-            transition: all 0.3s ease;
-            clip-path: polygon(0 15px, 15px 0, 100% 0, 100% calc(100% - 15px), calc(100% - 15px) 100%, 0 100%);
+            /* Sleek card styling for lobby selection */
+            background: rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
             transform-style: preserve-3d;
         }
         .lobby-card:hover {
-            background: rgba(20, 20, 40, 0.7); border-color: var(--primary-color);
-            box-shadow: 0 0 25px var(--primary-color);
+            background: rgba(10, 20, 40, 0.8);
+            transform: translateY(-6px) scale(1.02);
+            border-color: var(--cyan);
+            box-shadow: 0 0 20px var(--cyan), 0 0 30px var(--yellow);
         }
         .lobby-card .img-wrapper {
-            background: #000; margin-bottom: 1rem;
-            clip-path: polygon(0 10px, 10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            overflow: hidden;
         }
         .lobby-card img {
             width: 100%; height: auto; display: block; opacity: 0.9; transition: opacity 0.3s ease;
@@ -981,6 +988,28 @@
       height: 24px !important;
     }
   }
+
+        /* Show a concise description at the bottom of each core card */
+        .core-card .core-description {
+            position: absolute;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            font-size: 0.75em;
+            line-height: 1.2;
+            color: var(--text-light);
+            text-align: center;
+            opacity: 0.85;
+            pointer-events: none;
+            text-shadow: 0 0 5px var(--cyan);
+        }
+
+        /* Reserve space above the description for the gif */
+        .core-card .gif-container {
+            height: 210px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
 </style>
 <!-- Additional responsive styles to ensure the promo banner does not overlap the footer on small screens -->
 <style>
@@ -1712,10 +1741,11 @@
   #authScreen{
     position: relative;
     overflow: hidden;
+    /* Quantum-themed background: green and red glows */
     background:
-      radial-gradient(1200px 700px at 20% 15%, rgba(255,215,0,.10), transparent),
-      radial-gradient(900px 600px at 80% 70%, rgba(255,0,64,.12), transparent),
-      linear-gradient(180deg,#120005 0%, #1a0004 50%, #120005 100%);
+      radial-gradient(1200px 700px at 20% 15%, rgba(0,255,0,.10), transparent),
+      radial-gradient(900px 600px at 80% 70%, rgba(255,0,0,.12), transparent),
+      linear-gradient(180deg,#001407 0%, #0a0a0a 50%, #120006 100%);
   }
 
   #dragon-tech-bg{
@@ -1723,11 +1753,12 @@
     z-index: 0; pointer-events: none;
     --dragon-url: url('https://i.ibb.co/3mJ3m5v/dragon-wire-gold.webp');
     background:
-      repeating-linear-gradient(0deg, rgba(255,215,0,.06) 0 1px, transparent 1px 6px),
-      repeating-linear-gradient(90deg, rgba(255,215,0,.05) 0 1px, transparent 1px 6px),
-      radial-gradient(600px 400px at 65% 40%, rgba(255, 215, 0, .08), transparent 60%);
+      repeating-linear-gradient(0deg, rgba(0,255,0,.06) 0 1px, transparent 1px 6px),
+      repeating-linear-gradient(90deg, rgba(0,255,0,.05) 0 1px, transparent 1px 6px),
+      radial-gradient(600px 400px at 65% 40%, rgba(255, 0, 0, .08), transparent 60%);
 
-    filter: drop-shadow(0 0 18px rgba(255,215,0,.25));
+    /* Apply green glow instead of gold */
+    filter: drop-shadow(0 0 18px rgba(0,255,0,.25));
     opacity:.75;
     animation: dragonFloat 18s ease-in-out infinite;
   }
@@ -1735,8 +1766,9 @@
   #dragon-tech-bg::after{
     content:"";
     position:absolute; inset:-20% 0 auto 0; height:4px;
-    background: linear-gradient(90deg,transparent, rgba(255,215,0,.85), transparent);
-    box-shadow: 0 0 18px rgba(255,215,0,.95);
+    /* Use green scanning line instead of gold */
+    background: linear-gradient(90deg, transparent, rgba(0,255,0,.85), transparent);
+    box-shadow: 0 0 18px rgba(0,255,0,.95);
     animation: scanLine 3.2s linear infinite;
     mix-blend-mode: screen; opacity:.85;
   }
@@ -1745,8 +1777,9 @@
     content:"";
     position:absolute; inset:0;
     background-image:
-      radial-gradient(rgba(255,215,0,.9) 1px, transparent 1px),
-      radial-gradient(rgba(255,120,0,.8) 1px, transparent 1px);
+      /* Swap golden twinkle for green and red speckles */
+      radial-gradient(rgba(0,255,0,.9) 1px, transparent 1px),
+      radial-gradient(rgba(255,0,0,.8) 1px, transparent 1px);
     background-size: 3px 3px, 4px 4px;
     background-position: 0 0, 20px 10px;
     opacity:.22;
@@ -1925,8 +1958,9 @@
 <button aria-label="Lõi tiếp theo" class="core-nav-btn" id="next-core-btn">&gt;</button>
 </div>
 <div id="promo-banner">
-<a href="https://www.f168a2.net/home/register?id=409098214¤cy=VND" id="promo-text" target="_blank">ĐĂNG KÍ NẠP ĐẦU 8888K - TẶNG VÒNG XOAY MAY MẮN</a>
-<a href="https://vongxoaylongbao.site/" id="promo-spinner-link" target="_blank"><svg id="promo-spinner" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><lineargradient id="gold-gradient" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0%" style="stop-color: #fcee0a; stop-opacity: 1"></stop><stop offset="100%" style="stop-color: #ffd700; stop-opacity: 1"></stop></lineargradient></defs><g class="spinner-wheel"><circle cx="50" cy="50" fill="transparent" r="25" stroke="#E74C3C" stroke-dasharray="26.18 157.08" stroke-width="50" transform="rotate(-90 50 50)"></circle><circle cx="50" cy="50" fill="transparent" r="25" stroke="#F1C40F" stroke-dasharray="26.18 157.08" stroke-width="50" transform="rotate(-30 50 50)"></circle><circle cx="50" cy="50" fill="transparent" r="25" stroke="#2ECC71" stroke-dasharray="26.18 157.08" stroke-width="50" transform="rotate(30 50 50)"></circle><circle cx="50" cy="50" fill="transparent" r="25" stroke="#3498DB" stroke-dasharray="26.18 157.08" stroke-width="50" transform="rotate(90 50 50)"></circle><circle cx="50" cy="50" fill="transparent" r="25" stroke="#9B59B6" stroke-dasharray="26.18 157.08" stroke-width="50" transform="rotate(150 50 50)"></circle><circle cx="50" cy="50" fill="transparent" r="25" stroke="#1ABC9C" stroke-dasharray="26.18 157.08" stroke-width="50" transform="rotate(210 50 50)"></circle></g><circle cx="50" cy="50" fill="none" r="48" stroke="url(#gold-gradient)" stroke-width="4"></circle><path d="M50,0 L45,15 L55,15 Z" fill="var(--gold)" stroke="var(--dark-blue)" stroke-width="1"></path><circle cx="50" cy="50" fill="var(--dark-blue)" r="12" stroke="var(--gold)" stroke-width="2"></circle><circle cx="50" cy="50" fill="var(--gold)" r="8"></circle></svg></a>
+<a href="https://www.f168top.site" id="promo-text" target="_blank">ĐĂNG KÍ TẶNG 150% NẠP ĐẦU</a>
+<!-- Updated spinner link to point to the same promotion site -->
+<a href="https://www.f168top.site" id="promo-spinner-link" target="_blank"><svg id="promo-spinner" viewbox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><defs><lineargradient id="gold-gradient" x1="0%" x2="100%" y1="0%" y2="100%"><stop offset="0%" style="stop-color: #fcee0a; stop-opacity: 1"></stop><stop offset="100%" style="stop-color: #ffd700; stop-opacity: 1"></stop></lineargradient></defs><g class="spinner-wheel"><circle cx="50" cy="50" fill="transparent" r="25" stroke="#E74C3C" stroke-dasharray="26.18 157.08" stroke-width="50" transform="rotate(-90 50 50)"></circle><circle cx="50" cy="50" fill="transparent" r="25" stroke="#F1C40F" stroke-dasharray="26.18 157.08" stroke-width="50" transform="rotate(-30 50 50)"></circle><circle cx="50" cy="50" fill="transparent" r="25" stroke="#2ECC71" stroke-dasharray="26.18 157.08" stroke-width="50" transform="rotate(30 50 50)"></circle><circle cx="50" cy="50" fill="transparent" r="25" stroke="#3498DB" stroke-dasharray="26.18 157.08" stroke-width="50" transform="rotate(90 50 50)"></circle><circle cx="50" cy="50" fill="transparent" r="25" stroke="#9B59B6" stroke-dasharray="26.18 157.08" stroke-width="50" transform="rotate(150 50 50)"></circle><circle cx="50" cy="50" fill="transparent" r="25" stroke="#1ABC9C" stroke-dasharray="26.18 157.08" stroke-width="50" transform="rotate(210 50 50)"></circle></g><circle cx="50" cy="50" fill="none" r="48" stroke="url(#gold-gradient)" stroke-width="4"></circle><path d="M50,0 L45,15 L55,15 Z" fill="var(--gold)" stroke="var(--dark-blue)" stroke-width="1"></path><circle cx="50" cy="50" fill="var(--dark-blue)" r="12" stroke="var(--gold)" stroke-width="2"></circle><circle cx="50" cy="50" fill="var(--gold)" r="8"></circle></svg></a>
 </div>
 </div>
 <div class="hidden" id="chat-robot-container">
@@ -2723,12 +2757,16 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     });
 
+                    // Colour logic for matrix characters: use red for ripple, white for proximity, green for default
                     if (inRipple) {
-                        ctx.fillStyle = '#ffb300';
+                        // Use vivid red for ripple effect
+                        ctx.fillStyle = '#ff0000';
                     } else if (distMouse < mouse.radius) {
+                        // Keep white for mouse proximity to highlight follow behaviour
                         ctx.fillStyle = `rgba(255, 255, 255, ${1 - distMouse / mouse.radius})`;
                     } else {
-                        ctx.fillStyle = '#00FFFF';
+                        // Default matrix rain colour set to neon green
+                        ctx.fillStyle = '#00ff00';
                     }
                     
                     ctx.fillText(text, xPos, yPos);
