@@ -2,8 +2,9 @@
 /* Thay đổi một số biến màu để dễ nhìn hơn trên nền tối */
 :root {
   --container-bg: rgba(10, 25, 47, 0.7);
-  --cyan: #00e6e6;
-  --yellow: #ffe600;
+  /* Updated quantum theme: primary green and red colors */
+  --cyan: #00ffb2;
+  --yellow: #ff3b3b;
 }
 
 /* Điều chỉnh vùng đăng nhập trên thiết bị di động */

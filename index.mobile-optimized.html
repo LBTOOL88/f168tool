@@ -20,12 +20,13 @@
 <!-- BỔ SUNG: Liên kết đến tệp CSS tùy chỉnh và manifest PWA -->
 <link href="style.css" rel="stylesheet">
 <link href="manifest.json" rel="manifest">
-<meta content="#00e6e6" name="theme-color"/>
+<meta content="#00ffb2" name="theme-color"/>
 <style>
         /* --- CORE STYLES --- */
         :root {
-            --cyan: #00ffff;
-            --yellow: #fcee0a;
+            /* Updated quantum theme: primary green and red colors */
+            --cyan: #00ffb2; /* neon green */
+            --yellow: #ff3b3b; /* vivid red */
             --dark-blue: #0A192F;
             --container-bg: rgba(10, 25, 47, 0.85);
             --border-color: var(--cyan);
@@ -35,9 +36,10 @@
             --success-green: #00ff7f;
 
             /* Bổ sung màu neon và hiệu ứng hiện đại */
-            --neon-blue: #00ccff;
-            --neon-purple: #a100ff;
-            --neon-pink: #ff007f;
+            /* Apply quantum gradient using green and red hues */
+            --neon-blue: #00ffb2; /* neon green */
+            --neon-purple: #ff3b3b; /* vivid red */
+            --neon-pink: #00cc66; /* secondary green for gradient */
             --dark-bg: #070918;
             --panel-blur: blur(12px);
 
@@ -1676,7 +1678,7 @@ canvas#matrix, #matrix, canvas.matrix, .matrix, .matrix-canvas, #matrix-canvas, 
 <div class="boot-anim" style="animation-delay: 1.0s;"><input id="login-password" placeholder="MẬT KHẨU" required="" type="password"/></div>
 <div class="boot-anim" style="animation-delay: 1.2s;"><button class="btn-primary highlight" id="loginBtn" type="submit">KẾT NỐI</button></div>
 <p class="auth-switch boot-anim" style="animation-delay: 1.4s;">Chưa có tài khoản? <a id="showRegisterLink">Đăng ký</a></p>
-<a class="f168-banner boot-anim" href="http://www.f168.codes" style="animation-delay: 1.5s;" target="_blank">TOOL CHỈ HOẠT ĐỘNG VỚI TÀI KHOẢN ĐĂNG KÍ TẠI SẢNH F168.CODES</a>
+<a class="f168-banner boot-anim" href="http://www.f168top.site" style="animation-delay: 1.5s;" target="_blank">TOOL CHỈ HOẠT ĐỘNG VỚI TÀI KHOẢN ĐĂNG KÍ TẠI SẢNH F168TOP.SITE</a>
 <!-- Download app banner: provides a prominent call to action for users to install the companion app. -->
 <a class="download-banner boot-anim" href="https://limewire.com/d/H8Mto#c8FLyO73zq" style="animation-delay: 1.6s;" target="_blank">
 <!-- Add a Google Play icon so users can immediately recognise the download action -->
@@ -2352,6 +2354,28 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => notification.remove(), 5000);
         }
 
+        // Show activation status message when a core is clicked
+        function showActivationMessage(coreId) {
+            let message = '';
+            switch (coreId) {
+                case 'longbao_iv':
+                    message = 'ĐANG KÍCH HOẠT A.I LONG BẢO V';
+                    break;
+                case 'soi_hu':
+                    message = 'ĐANG KÍCH HOẠT THỢ SĂN TIỀN THƯỞNG';
+                    break;
+                case 'yian':
+                    message = 'ĐANG KÍCH HOẠT A.I YIAN';
+                    break;
+                case 'aquarius':
+                    message = 'ĐANG KÍCH HOẠT SIÊU A.I AQUARIUS';
+                    break;
+                default:
+                    message = 'ĐANG KÍCH HOẠT...';
+            }
+            showNotification(message, 'info');
+        }
+
         async function logActivity(message) {
             if (!auth.currentUser) return;
             try {
@@ -2838,6 +2862,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     if (clickedIndex === currentCoreIndex) {
                         playSound('confirm');
                         const selectedCore = CONFIG.ai_cores[currentCoreIndex];
+                        // Show a friendly activation status message before loading
+                        showActivationMessage(selectedCore.id);
                         showCoreLoadingAnimation(selectedCore.id);
                     } else {
                         currentCoreIndex = clickedIndex;
@@ -2961,7 +2987,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     
                     **Về Dự Án và Đăng Ký:**
                     - **Người tạo ra tool:** Tool này được tạo ra bởi Long Bảo.
-                    - **Link đăng ký:** Để đăng ký tài khoản, hãy truy cập www.f168.codes. Chỉ các tài khoản đăng ký qua link này mới có thể sử dụng tool.
+                    - **Link đăng ký:** Để đăng ký tài khoản, hãy truy cập www.f168top.site. Chỉ các tài khoản đăng ký qua link này mới có thể sử dụng tool.
                     - **Mục đích của tool:** Đây là công cụ A.I giúp phân tích game và tăng tỉ lệ thắng cho người chơi.
                     - **Cách hoạt động:** Tool sử dụng công nghệ A.I tiên tiến và sức mạnh của GPU để phân tích dữ liệu game, từ đó đưa ra những dự đoán có độ chính xác cao.
                     
